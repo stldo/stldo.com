@@ -1,0 +1,57 @@
+---
+import { getEntry } from "astro:content";
+import GithubIcon from "#/assets/icons/github.svg";
+import Button from "#/components/Button/Button.astro";
+import { getGithubUserRepositories } from "#/utils/github/get-user-repositories";
+import { styles } from "./IndexProjects.css";
+import IndexSection from "./IndexSection.astro";
+
+const section = await getEntry("screens", "index/projects");
+const { content, title } = section?.data ?? {};
+
+const { deprecatedTitle, githubUser, selfDescription } =
+  content && "githubUser" in content ? content : {};
+
+const repositories =
+  githubUser && (await getGithubUserRepositories(githubUser, selfDescription));
+---
+
+{deprecatedTitle && githubUser && repositories && title && (
+  <IndexSection title={title} type="secondary">
+    <Button
+      href={`https://github.com/${githubUser}`}
+      iconComponent={GithubIcon}
+    >
+      {`.com/${githubUser}`}
+    </Button>
+
+    <ul class={styles.items}>
+      {repositories.active.map((repository) => (
+        <li class={styles.item.root}>
+          <a class={styles.item.anchor} href={repository.url}>
+            <h4 class={styles.item.label}>{repository.name}</h4>
+            {`: ${repository.description}`}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <h3 class:list={[styles.title, styles.deprecated]}>
+      {deprecatedTitle}
+    </h3>
+
+    <ul class={styles.items}>
+      {repositories.archived.map((repository) => (
+        <li class={styles.item.root}>
+          <a
+            class:list={[styles.item.anchor, styles.deprecated]}
+            href={repository.url}
+          >
+            <h4 class={styles.item.label}>{repository.name}</h4>
+            {`: ${repository.description}`}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </IndexSection>
+)}

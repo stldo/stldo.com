@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { styles } from "./MainHeaderNav.css";
+import MainHeaderNavItem from "./MainHeaderNavItem.astro";
+
+const screens = (await getCollection("screens")).reduce(
+  (accumulator, { id, data: { title } }) => {
+    accumulator[id] = title;
+    return accumulator;
+  },
+  {} as Record<string, string>,
+);
+
+const titles = [
+  screens["index/about"],
+  screens["index/stack"],
+  screens["index/projects"],
+  screens["index/contact"],
+];
+---
+
+<div class={styles.root}>
+  {titles.map((title) => <MainHeaderNavItem title={title} />)}
+</div>

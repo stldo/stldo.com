@@ -1,0 +1,35 @@
+---
+import { getEntry } from "astro:content";
+import faviconIconUrl from "#/assets/icons/favicon.svg?no-inline";
+import { theme } from "#/styles/theme";
+import { className } from "#/styles/vars.css";
+import { styles } from "./Base.css";
+
+const { class: classNameProp } = Astro.props;
+
+const layout = await getEntry("layouts", "base");
+
+export interface Props {
+  class?: {
+    body?: string;
+  };
+}
+---
+
+<html class={className} lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/svg+xml" href={faviconIconUrl}>
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content={Astro.generator}>
+
+    {layout?.data.title && layout.data.subtitle && (
+      // biome-ignore lint/style/noJsxLiterals: n/a
+      <title>{layout.data.title} : {layout.data.subtitle}</title>
+    )}
+  </head>
+
+  <body class:list={[classNameProp?.body, styles.body, theme.class.fillVh]}>
+    <slot />
+  </body>
+</html>

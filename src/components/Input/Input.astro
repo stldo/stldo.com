@@ -1,0 +1,75 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import urlSlug from "url-slug";
+import { styles } from "./Input.css";
+
+let {
+  class: className,
+  id,
+  label,
+  name,
+  required,
+  type,
+  validateOn,
+  ...props
+} = Astro.props;
+
+let Component: "input" | "textarea";
+
+if (!name) {
+  name = urlSlug(label);
+}
+
+if (type === "textarea") {
+  Component = "textarea";
+  type = null;
+} else {
+  Component = "input";
+}
+
+export type Props = (
+  | (Omit<HTMLAttributes<"input">, "class"> & {
+      [K in keyof Omit<
+        HTMLAttributes<"textarea">,
+        keyof HTMLAttributes<"input">
+      >]?: never;
+    })
+  | (Omit<HTMLAttributes<"textarea">, "class" | "rows"> & {
+      type: "textarea";
+    } & {
+      [K in keyof Omit<
+        HTMLAttributes<"input">,
+        keyof HTMLAttributes<"textarea"> | "type"
+      >]?: never;
+    })
+) & {
+  class?: { root?: string; field?: string };
+  label: string;
+  required?: boolean;
+  validateOn?: "blur" | "change";
+};
+---
+
+<label class:list={[className?.root, styles.root]} for={id ?? name}>
+  {label}
+  <Component
+    {...props}
+    class:list={[
+      className?.field,
+      styles.field,
+      Component === "textarea" && styles.textarea
+    ]}
+    id={id ?? name}
+    name={name}
+    required={required}
+    {...(type && { type })}
+  />
+  <component-input data-validate-on={validateOn} hidden />
+</label>
+
+<script>
+import { defineCustomElement } from "#/utils/dom/define-custom-element";
+import { InputElement } from "./InputElement";
+
+defineCustomElement("component-input", InputElement);
+</script>

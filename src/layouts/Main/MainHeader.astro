@@ -1,0 +1,15 @@
+---
+import { getEntry } from "astro:content";
+import Container from "#/components/Container/Container.astro";
+import { styles } from "./MainHeader.css";
+import MainHeaderNav from "./MainHeaderNav.astro";
+
+const layout = await getEntry("layouts", "base");
+---
+
+<Container as="header" class={styles.root}>
+  <div class={styles.content}>
+    {layout && <span class={styles.logo}>{layout.data.title}</span>}
+    <MainHeaderNav />
+  </div>
+</Container>

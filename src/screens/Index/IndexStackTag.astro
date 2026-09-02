@@ -1,0 +1,26 @@
+---
+import urlSlug from "url-slug";
+import { styles } from "./IndexStackTag.css";
+
+const { label, level } = Astro.props;
+
+const { default: src } = await import(
+  `../../content/screens/index/stack/icons/${urlSlug(label)}.svg?url`
+);
+
+export interface Props {
+  label: string;
+  level: 1 | 2 | 3 | 4 | 5;
+}
+---
+
+<span class:list={[styles.root, styles.level[level]]}>
+  <img
+    alt={label}
+    class={styles.icon}
+    decoding="async"
+    loading="lazy"
+    src={src}
+  >
+  {label}
+</span>

@@ -1,0 +1,36 @@
+<svg
+  clip-rule="evenodd"
+  fill-rule="evenodd"
+  stroke-linejoin="round"
+  stroke-miterlimit="2"
+  viewBox="0 0 220 220"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title>Qdrant</title>
+  <g fill-rule="nonzero" transform="translate(23.395 10)">
+    <g fill="#dc244c">
+      <path
+        d="m86.6 0-86.6 50v100l86.6 50 32.48-18.75v-37.5l-32.48 18.75-54.12-31.25v-62.5l54.12-31.25 54.13 31.25v125l32.48-18.75v-125z"
+      />
+      <path d="m54.13 81.25v37.5l32.47 18.75 32.48-18.75v-37.5l-32.48-18.75z" />
+    </g>
+    <g>
+      <path d="m119.08 143.75v37.5l-32.48 18.75v-37.5z" fill="#9e0d38" />
+      <path d="m173.21 50v125l-32.48 18.75v-125z" fill="#9e0d38" />
+      <path
+        d="m173.21 50-32.48 18.75-54.13-31.25-54.12 31.25-32.48-18.75 86.6-50z"
+        fill="#ff516b"
+      />
+      <path
+        d="m86.6 162.5v37.5l-86.6-50v-100l32.48 18.75v62.5z"
+        fill="#dc244c"
+      />
+      <path
+        d="m119.08 81.25-32.48 18.75-32.47-18.75 32.47-18.75z"
+        fill="#ff516b"
+      />
+      <path d="m86.6 100v37.5l-32.47-18.75v-37.5z" fill="#dc244c" />
+      <path d="m119.08 81.25v37.5l-32.48 18.75v-37.5z" fill="#9e0d38" />
+    </g>
+  </g>
+</svg>

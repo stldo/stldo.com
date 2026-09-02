@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+import { styles } from "./Container.css";
+
+const { as: Component = "div", class: className, ...props } = Astro.props;
+
+export type Props<Tag extends HTMLTag = "div"> = HTMLAttributes<Tag> & {
+  as?: Tag;
+};
+---
+
+<Component {...props} class:list={[className, styles.root]}>
+  <slot />
+</Component>

@@ -1,0 +1,1 @@
+npm run format -- --no-errors-on-unmatched --staged

@@ -1,0 +1,15 @@
+<svg
+  height="32"
+  viewBox="0 0 32 32"
+  width="32"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title>Tamagui</title>
+  <g fill="none" fill-rule="evenodd">
+    <path d="m11 4h14v8h-14z" fill="#000" />
+    <path
+      d="m2 22v-2h2v-2h2v-2h2v-10h2v-4h4v-2h10v2h2v2h2v4h4v2h-2v2h2v2h-2v2h-2v4h2v2h2v6h-2v2h-4v2h-18v-2h-4v-2h-2v-2h-2v-4zm16-14h-2v2h2zm6-2h-2v2h2z"
+      fill="#ecd20a"
+    />
+  </g>
+</svg>

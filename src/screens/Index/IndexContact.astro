@@ -1,0 +1,24 @@
+---
+import { getEntry } from "astro:content";
+import Button from "#/components/Button/Button.astro";
+import Form from "#/components/Form/Form.astro";
+import Input from "#/components/Input/Input.astro";
+import { styles } from "./IndexContact.css";
+import IndexSection from "./IndexSection.astro";
+
+const section = await getEntry("screens", "index/contact");
+const { content, title } = section?.data ?? {};
+const { email, message, name, submit } =
+  content && "submit" in content ? content : {};
+---
+
+{email && message && name && submit && title && (
+  <IndexSection alignment="center" title={title} type="secondary">
+    <Form action="contact" class={styles.form} validateOn="change">
+      <Input label={name} type="text" />
+      <Input label={email} type="email" />
+      <Input label={message} type="textarea" />
+      <Button type="submit">{submit}</Button>
+    </Form>
+  </IndexSection>
+)}

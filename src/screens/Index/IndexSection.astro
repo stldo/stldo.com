@@ -1,0 +1,63 @@
+---
+import urlSlug from "url-slug";
+import Container from "#/components/Container/Container.astro";
+import { styles } from "./IndexSection.css";
+
+const {
+  alignment = "start",
+  class: className,
+  slug,
+  subtitle,
+  title,
+  type,
+} = Astro.props;
+
+const classNames =
+  type === "primary"
+    ? {
+        content: styles.primary.content,
+        title: styles.primary.title,
+      }
+    : {
+        content: styles.secondary.content,
+        title: styles.secondary.title,
+      };
+
+const TitleElement = type === "primary" ? "h1" : "h2";
+
+export interface Props {
+  alignment?: "center" | "start" | "end";
+  class?: { content?: string; subtitle?: string; title?: string };
+  slug?: string;
+  subtitle?: string;
+  title: string;
+  type: "primary" | "secondary";
+}
+---
+
+<home-section data-slug={slug ?? urlSlug(title)}>
+  <Container
+    as="article"
+    class:list={[
+      styles.root,
+      alignment !== "start" && styles.alignment[alignment]
+    ]}
+  >
+    <TitleElement class:list={[className?.title, classNames.title]}>
+      {title}
+    </TitleElement>
+
+    {subtitle && (
+      <div class:list={[className?.subtitle, styles.subtitle]}>{subtitle}</div>
+    )}
+
+    <div class:list={[className?.content, classNames.content]}><slot /></div>
+  </Container>
+</home-section>
+
+<script>
+import { defineCustomElement } from "#/utils/dom/define-custom-element";
+import { IndexSectionElement } from "./IndexSectionElement";
+
+defineCustomElement("home-section", IndexSectionElement);
+</script>

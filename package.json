@@ -1,0 +1,48 @@
+{
+  "name": "stldo.com",
+  "private": true,
+  "version": "3.0.0",
+  "license": "UNLICENSED",
+  "allowScripts": {
+    "esbuild": true,
+    "workerd": true
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/cloudflare": "^14.2.6",
+    "@vanilla-extract/css": "^1.21.2",
+    "@vanilla-extract/css-utils": "^0.1.6",
+    "anychar": "^0.1.0",
+    "astro": "^7.2.10",
+    "bakeware": "^0.2.0",
+    "nanostores": "^1.5.2",
+    "p-debounce": "^5.1.0",
+    "typescript": "^6.0.3",
+    "url-slug": "^5.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.11",
+    "@colordx/core": "^5.7.0",
+    "@vanilla-extract/vite-plugin": "^5.2.6",
+    "autoprefixer": "^10.5.4",
+    "husky": "^9.1.7",
+    "postcss": "^8.5.26",
+    "type-fest": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "scripts": {
+    "build": "astro build",
+    "clean": "rm -rf .astro dist node_modules/.astro node_modules/.vite",
+    "dev": "astro dev",
+    "lint": "biome check && astro check",
+    "format": "biome check --write",
+    "preview": "astro preview",
+    "prepare": "husky",
+    "typecheck": "tsc --noEmit"
+  }
+}

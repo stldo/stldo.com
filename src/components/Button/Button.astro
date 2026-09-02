@@ -1,0 +1,50 @@
+---
+import type { HTMLAttributes, SvgComponent } from "astro/types";
+import { styles } from "./Button.css";
+
+const {
+  class: className,
+  iconComponent: Icon,
+  type: typeProp,
+  variant = "standard",
+  ...props
+} = Astro.props;
+
+const Component = "href" in props ? "a" : "button";
+
+const type = typeProp as HTMLAttributes<
+  typeof Component extends "a" ? "a" : "button"
+>["type"];
+
+export type Props = (
+  | (Omit<HTMLAttributes<"a">, "type"> & {
+      href: string;
+      type?: string & {};
+    } & {
+      [K in keyof Omit<
+        HTMLAttributes<"button">,
+        keyof HTMLAttributes<"a">
+      >]?: never;
+    })
+  | (HTMLAttributes<"button"> & {
+      href?: never;
+    } & {
+      [K in keyof Omit<
+        HTMLAttributes<"a">,
+        keyof HTMLAttributes<"button">
+      >]?: never;
+    })
+) & {
+  iconComponent?: SvgComponent;
+  variant?: "plain" | "standard";
+};
+---
+
+<Component
+  {...props}
+  class:list={[className, styles.root, styles[variant]]}
+  type={type}
+>
+  {Icon && <Icon class={styles.icon} />}
+  <slot />
+</Component>

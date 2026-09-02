@@ -1,0 +1,22 @@
+---
+import { getEntry } from "astro:content";
+import Button from "#/components/Button/Button.astro";
+import Container from "#/components/Container/Container.astro";
+import BaseLayout from "#/layouts/Base/Base.astro";
+import { theme } from "#/styles/theme";
+import { styles } from "./NotFound.css";
+
+const screen = await getEntry("screens", "not-found/main");
+const { content, subtitle, title } = screen?.data ?? {};
+const { action } = content && "action" in content ? content : {};
+---
+
+{action && content && subtitle && title && (
+  <BaseLayout>
+    <Container as="main" class:list={[styles.root, theme.class.fillVh]}>
+      <h1 class={styles.title}>{title}</h1>
+      <p>{subtitle}</p>
+      <p><Button href="/" variant="plain">{action.label}</Button></p>
+    </Container>
+  </BaseLayout>
+)}

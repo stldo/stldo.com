@@ -1,0 +1,28 @@
+---
+import { getEntry, render } from "astro:content";
+import urlSlug from "url-slug";
+import { styles } from "./IndexAbout.css";
+import IndexSection from "./IndexSection.astro";
+
+const layout = await getEntry("layouts", "base");
+const section = await getEntry("screens", "index/about");
+
+const { Content } = section ? await render(section) : {};
+---
+
+{layout && section && Content && (
+  <IndexSection
+    alignment="end"
+    class={{
+      content: styles.content,
+      subtitle: styles.content,
+      title: styles.content,
+    }}
+    slug={urlSlug(section.data.title)}
+    subtitle={section.data.subtitle}
+    title={layout.data.subtitle ?? section.data.title}
+    type="primary"
+  >
+    <Content />
+  </IndexSection>
+)}

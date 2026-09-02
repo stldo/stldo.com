@@ -1,0 +1,6 @@
+{
+  "name": "stldo",
+  "assets": {
+    "directory": "./dist"
+  }
+}

@@ -1,0 +1,113 @@
+title: My stack
+content:
+  items:
+  - label: JavaScript
+    level: 5
+  - label: PHP
+    level: 2
+  - label: Python
+    level: 3
+  - label: Shell Script
+    level: 4
+  - label: TypeScript
+    level: 5
+
+  - label: GraphQL
+    level: 3
+  - label: LangChain
+    level: 3
+  - label: LangGraph
+    level: 2
+  - label: React
+    level: 5
+  - label: Redux
+    level: 4
+
+  - label: Astro
+    level: 5
+  - label: Gatsby
+    level: 3
+  - label: Laravel
+    level: 1
+  - label: Next.js
+    level: 5
+
+  - label: Expo
+    level: 4
+  - label: React Native
+    level: 4
+
+  - label: Bootstrap
+    level: 1
+  - label: Emotion
+    level: 3
+  - label: MUI
+    level: 5
+  - label: React Native Paper
+    level: 3
+  - label: Sass
+    level: 2
+  - label: Stylus
+    level: 2
+  - label: Tailwind CSS
+    level: 3
+  - label: Tamagui
+    level: 1
+  - label: vanilla-extract
+    level: 5
+
+  - label: Rollup
+    level: 4
+  - label: vite
+    level: 4
+  - label: webpack
+    level: 2
+
+  - label: Figma
+    level: 4
+  - label: Illustrator
+    level: 3
+  - label: Photoshop
+    level: 2
+  - label: XD
+    level: 3
+
+  - label: Ghost
+    level: 2
+  - label: Prismic
+    level: 3
+  - label: Sanity
+    level: 4
+  - label: Strapi
+    level: 2
+  - label: Wordpress
+    level: 1
+
+  - label: MongoDB
+    level: 3
+  - label: MySQL
+    level: 2
+  - label: PostgreSQL
+    level: 3
+  - label: Qdrant
+    level: 3
+
+  - label: AWS
+    level: 2
+  - label: Cloudflare
+    level: 3
+  - label: Google Cloud
+    level: 3
+  - label: Netlify
+    level: 3
+  - label: Vercel
+    level: 3
+
+  - label: Apache HTTP Server
+    level: 1
+  - label: Linux
+    level: 4
+  - label: nginx
+    level: 3
+  - label: Node.js
+    level: 5

@@ -1,0 +1,66 @@
+<svg
+  viewBox="0 0 64 64"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <title>Node.js</title>
+  <linearGradient
+    id="a"
+    gradientTransform="matrix(-44.3046 90.38138 90.38138 44.3046 -46405.01617 17843.82385)"
+    gradientUnits="userSpaceOnUse"
+    x1="-362.18668"
+    x2="-361.67514"
+    y1="336.36001"
+    y2="336.36001"
+  >
+    <stop offset="0" stop-color="#41873f" />
+    <stop offset=".3296" stop-color="#418b3d" />
+    <stop offset=".63676" stop-color="#409637" />
+    <stop offset=".93418" stop-color="#3fa92d" />
+    <stop offset="1" stop-color="#3fae2a" />
+  </linearGradient>
+  <linearGradient
+    id="b"
+    gradientTransform="matrix(124.31544 -91.85089 -91.85089 -124.31544 76553.39445 8903.00449)"
+    gradientUnits="userSpaceOnUse"
+    x1="-364.10353"
+    x2="-363.592"
+    y1="340.35076"
+    y2="340.35076"
+  >
+    <stop offset="0" stop-color="#41873f" />
+    <stop offset=".13756" stop-color="#41873f" />
+    <stop offset=".40397" stop-color="#54a044" />
+    <stop offset=".71384" stop-color="#66b748" />
+    <stop offset=".90808" stop-color="#6cc04a" />
+    <stop offset="1" stop-color="#6cc04a" />
+  </linearGradient>
+  <linearGradient
+    id="c"
+    gradientTransform="matrix(113.38591 0 0 -113.38591 41399.29268 38533.12904)"
+    gradientUnits="userSpaceOnUse"
+    x1="-365.09204"
+    x2="-364.5805"
+    y1="339.55843"
+    y2="339.55843"
+  >
+    <stop offset="0" stop-color="#6cc04a" />
+    <stop offset=".09192" stop-color="#6cc04a" />
+    <stop offset=".28616" stop-color="#66b748" />
+    <stop offset=".59603" stop-color="#54a044" />
+    <stop offset=".86244" stop-color="#41873f" />
+    <stop offset="1" stop-color="#41873f" />
+  </linearGradient>
+  <path
+    d="m60.113 46.48218v-28.97644a3.02746 3.02746 0 0 0 -1.5152-2.62317l-25.08004-14.47644a3.0276 3.0276 0 0 0 -3.02936 0l-25.08569 14.47644a3.02853 3.02853 0 0 0 -1.51571 2.62469v28.97492a3.032 3.032 0 0 0 1.51465 2.6242l25.0857 14.48768a3.03259 3.03259 0 0 0 3.03137 0l25.07961-14.48768a3.03094 3.03094 0 0 0 1.51467-2.6242z"
+    fill="url(#a)"
+  />
+  <path
+    d="m30.50323 63.59406a3.04094 3.04094 0 0 0 1.72083.398 3.07562 3.07562 0 0 0 .62408-.11152l26.45252-48.43932a3.04867 3.04867 0 0 0 -.70288-.55865l-16.40078-9.46698-8.70585-5.00946a3.02618 3.02618 0 0 0 -.7868-.31354l-28.19428 48.22961a3.03958 3.03958 0 0 0 .8916.78418l21.59448 12.47126z"
+    fill="url(#b)"
+  />
+  <path
+    d="m31.9519.00562c-.0849 0-.17028.00305-.25476.01025a3.02857 3.02857 0 0 0 -1.20874.39026l-25.01458 14.43554 26.96718 49.12684a3.02613 3.02613 0 0 0 1.07776-.37445l25.07957-14.48768a3.033 3.033 0 0 0 1.4635-2.07019l-27.49402-46.96972a3.15862 3.15862 0 0 0 -.61591-.06085z"
+    fill="url(#c)"
+  />
+</svg>

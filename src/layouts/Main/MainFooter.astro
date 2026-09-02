@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from "astro:content";
+import Container from "#/components/Container/Container.astro";
+import { styles } from "./MainFooter.css";
+
+const section = await getEntry("layouts", "main/footer");
+const { Content } = section ? await render(section) : {};
+---
+
+{Content && (
+  <footer class={styles.root}>
+    <Container as="div">
+      <Content />
+    </Container>
+  </footer>
+)}

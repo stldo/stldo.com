@@ -1,0 +1,21 @@
+---
+import { getEntry } from "astro:content";
+import IndexSection from "./IndexSection.astro";
+import { styles } from "./IndexStack.css";
+import IndexStackTag from "./IndexStackTag.astro";
+
+const section = await getEntry("screens", "index/stack");
+---
+
+{section?.data.content && "items" in section.data.content && (
+  <IndexSection
+    alignment="center"
+    class={{ content: styles.content }}
+    title={section.data.title}
+    type="secondary"
+  >
+    {(section.data.content.items).map(({ label, level }) => (
+      <IndexStackTag label={label} level={level} />
+    ))}
+  </IndexSection>
+)}

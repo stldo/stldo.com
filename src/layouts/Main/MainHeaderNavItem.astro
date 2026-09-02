@@ -1,0 +1,21 @@
+---
+import urlSlug from "url-slug";
+import { styles } from "./MainHeaderNavItem.css";
+
+const { title } = Astro.props;
+
+export interface Props {
+  title: string;
+}
+---
+
+<layout-main-header-nav-item class={styles.root} data-slug={urlSlug(title)}>
+  {title}
+</layout-main-header-nav-item>
+
+<script>
+import { defineCustomElement } from "#/utils/dom/define-custom-element";
+import { MainHeaderNavItemElement } from "./MainHeaderNavItemElement";
+
+defineCustomElement("layout-main-header-nav-item", MainHeaderNavItemElement);
+</script>

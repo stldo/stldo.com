@@ -1,0 +1,32 @@
+---
+import type { actions } from "astro:actions";
+import type { HTMLAttributes } from "astro/types";
+import { schema } from "#/actions/schema";
+import { styles } from "./Form.css";
+
+const { action, class: className, validateOn, ...props } = Astro.props;
+const actionFields = Object.keys(schema[action].shape);
+
+export interface Props
+  extends Omit<HTMLAttributes<"form">, "action" | "method" | "novalidate"> {
+  action: keyof typeof actions;
+  validateOn?: "blur" | "change";
+}
+---
+
+<form {...props} class:list={[className, styles.root]} novalidate>
+  <slot />
+</form>
+<component-form
+  data-action={action}
+  data-action-fields={JSON.stringify(actionFields)}
+  data-validate-on={validateOn}
+  hidden
+/>
+
+<script>
+import { defineCustomElement } from "#/utils/dom/define-custom-element";
+import { FormElement } from "./FormElement";
+
+defineCustomElement("component-form", FormElement);
+</script>

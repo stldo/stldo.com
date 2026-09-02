@@ -1,0 +1,74 @@
+---
+import BaseLayout from "#/layouts/Base/Base.astro";
+import { theme } from "#/styles/theme";
+import { styles } from "./Main.css";
+import MainFooter from "./MainFooter.astro";
+import MainHeader from "./MainHeader.astro";
+---
+
+<BaseLayout class={{ body: theme.class.freeze }}>
+  <MainHeader />
+  <main class={styles.main}><slot /></main>
+  <MainFooter />
+</BaseLayout>
+
+<script>
+import { theme } from "#/styles/theme";
+
+let lastScrollY = window.scrollY;
+
+function addFreezeClass() {
+  document.body.classList.add(theme.class.freeze);
+}
+
+function removeFreezeClass() {
+  document.body.classList.remove(theme.class.freeze);
+}
+
+function toggleBodyScrollClasses() {
+  const { scrollY } = globalThis;
+
+  document.body.classList.toggle(theme.class.body.scroll.active, scrollY > 0);
+
+  document.body.classList.toggle(
+    theme.class.body.scroll.down,
+    scrollY > lastScrollY,
+  );
+
+  lastScrollY = scrollY;
+}
+
+let freezeId = 0;
+let scrollTicking = false;
+
+globalThis.addEventListener(
+  "resize",
+  () => {
+    globalThis.cancelAnimationFrame(freezeId);
+    freezeId = globalThis.requestAnimationFrame(() => {
+      freezeId = 0;
+      addFreezeClass();
+      globalThis.requestAnimationFrame(removeFreezeClass);
+    });
+  },
+  { passive: true },
+);
+
+globalThis.addEventListener(
+  "scroll",
+  () => {
+    if (!scrollTicking) {
+      scrollTicking = true;
+
+      globalThis.requestAnimationFrame(() => {
+        toggleBodyScrollClasses();
+        scrollTicking = false;
+      });
+    }
+  },
+  { passive: true },
+);
+
+removeFreezeClass();
+toggleBodyScrollClasses();
+</script>
